@@ -23,26 +23,40 @@
 	If not, uncomment the define below and
 	replace outbyte(c) by your own function call.
 
-#define putchar(c) outbyte(c)
 */
+
+#define putchar(c) c
 
 #include <stdarg.h>
 
-static void printchar(char **str, int c)
+static int tiny_print( char **out, const char *format, va_list args, unsigned int buflen );
+
+static void printchar(char **str, int c, char *buflimit)
 {
-	extern int putchar(int c);
-	
+	//extern int putchar(int c);
+
 	if (str) {
-		**str = c;
-		++(*str);
+		if( buflimit == ( char * ) 0 ) {
+			/* Limit of buffer not known, write charater to buffer. */
+			**str = (char)c;
+			++(*str);
+		}
+		else if( ( ( unsigned long ) *str ) < ( ( unsigned long ) buflimit ) ) {
+			/* Withing known limit of buffer, write character. */
+			**str = (char)c;
+			++(*str);
+		}
 	}
-	else (void)putchar(c);
+	else
+	{
+		(void)putchar(c);
+	}
 }
 
 #define PAD_RIGHT 1
 #define PAD_ZERO 2
 
-static int prints(char **out, const char *string, int width, int pad)
+static int prints(char **out, const char *string, int width, int pad, char *buflimit)
 {
 	register int pc = 0, padchar = ' ';
 
@@ -56,16 +70,16 @@ static int prints(char **out, const char *string, int width, int pad)
 	}
 	if (!(pad & PAD_RIGHT)) {
 		for ( ; width > 0; --width) {
-			printchar (out, padchar);
+			printchar (out, padchar, buflimit);
 			++pc;
 		}
 	}
 	for ( ; *string ; ++string) {
-		printchar (out, *string);
+		printchar (out, *string, buflimit);
 		++pc;
 	}
 	for ( ; width > 0; --width) {
-		printchar (out, padchar);
+		printchar (out, padchar, buflimit);
 		++pc;
 	}
 
@@ -75,38 +89,38 @@ static int prints(char **out, const char *string, int width, int pad)
 /* the following should be enough for 32 bit int */
 #define PRINT_BUF_LEN 12
 
-static int printi(char **out, int i, int b, int sg, int width, int pad, int letbase)
+static int printi(char **out, int i, int b, int sg, int width, int pad, int letbase, char *buflimit)
 {
 	char print_buf[PRINT_BUF_LEN];
 	register char *s;
 	register int t, neg = 0, pc = 0;
-	register unsigned int u = i;
+	register unsigned int u = (unsigned int)i;
 
 	if (i == 0) {
 		print_buf[0] = '0';
 		print_buf[1] = '\0';
-		return prints (out, print_buf, width, pad);
+		return prints (out, print_buf, width, pad, buflimit);
 	}
 
 	if (sg && b == 10 && i < 0) {
 		neg = 1;
-		u = -i;
+		u = (unsigned int)-i;
 	}
 
 	s = print_buf + PRINT_BUF_LEN-1;
 	*s = '\0';
 
 	while (u) {
-		t = u % b;
+		t = (unsigned int)u % b;
 		if( t >= 10 )
 			t += letbase - '0' - 10;
-		*--s = t + '0';
+		*--s = (char)(t + '0');
 		u /= b;
 	}
 
 	if (neg) {
 		if( width && (pad & PAD_ZERO) ) {
-			printchar (out, '-');
+			printchar (out, '-', buflimit);
 			++pc;
 			--width;
 		}
@@ -115,14 +129,23 @@ static int printi(char **out, int i, int b, int sg, int width, int pad, int letb
 		}
 	}
 
-	return pc + prints (out, s, width, pad);
+	return pc + prints (out, s, width, pad, buflimit);
 }
 
-static int print( char **out, const char *format, va_list args )
+static int tiny_print( char **out, const char *format, va_list args, unsigned int buflen )
 {
 	register int width, pad;
 	register int pc = 0;
-	char scr[2];
+	char scr[2], *buflimit;
+
+	if( buflen == 0 ){
+		buflimit = ( char * ) 0;
+	}
+	else {
+		/* Calculate the last valid buffer space, leaving space for the NULL
+		terminator. */
+		buflimit = ( *out ) + ( buflen - 1 );
+	}
 
 	for (; *format != 0; ++format) {
 		if (*format == '%') {
@@ -144,36 +167,36 @@ static int print( char **out, const char *format, va_list args )
 			}
 			if( *format == 's' ) {
 				register char *s = (char *)va_arg( args, int );
-				pc += prints (out, s?s:"(null)", width, pad);
+				pc += prints (out, s?s:"(null)", width, pad, buflimit);
 				continue;
 			}
 			if( *format == 'd' ) {
-				pc += printi (out, va_arg( args, int ), 10, 1, width, pad, 'a');
+				pc += printi (out, va_arg( args, int ), 10, 1, width, pad, 'a', buflimit);
 				continue;
 			}
 			if( *format == 'x' ) {
-				pc += printi (out, va_arg( args, int ), 16, 0, width, pad, 'a');
+				pc += printi (out, va_arg( args, int ), 16, 0, width, pad, 'a', buflimit);
 				continue;
 			}
 			if( *format == 'X' ) {
-				pc += printi (out, va_arg( args, int ), 16, 0, width, pad, 'A');
+				pc += printi (out, va_arg( args, int ), 16, 0, width, pad, 'A', buflimit);
 				continue;
 			}
 			if( *format == 'u' ) {
-				pc += printi (out, va_arg( args, int ), 10, 0, width, pad, 'a');
+				pc += printi (out, va_arg( args, int ), 10, 0, width, pad, 'a', buflimit);
 				continue;
 			}
 			if( *format == 'c' ) {
 				/* char are converted to int then pushed on the stack */
 				scr[0] = (char)va_arg( args, int );
 				scr[1] = '\0';
-				pc += prints (out, scr, width, pad);
+				pc += prints (out, scr, width, pad, buflimit);
 				continue;
 			}
 		}
 		else {
 		out:
-			printchar (out, *format);
+			printchar (out, *format, buflimit);
 			++pc;
 		}
 	}
@@ -185,28 +208,28 @@ static int print( char **out, const char *format, va_list args )
 int printf(const char *format, ...)
 {
         va_list args;
-        
+
         va_start( args, format );
-        return print( 0, format, args );
+        return tiny_print( 0, format, args, 0 );
 }
 
 int sprintf(char *out, const char *format, ...)
 {
         va_list args;
-        
+
         va_start( args, format );
-        return print( &out, format, args );
+        return tiny_print( &out, format, args, 0 );
 }
 
 
 int snprintf( char *buf, unsigned int count, const char *format, ... )
 {
         va_list args;
-        
+
         ( void ) count;
-        
+
         va_start( args, format );
-        return print( &buf, format, args );
+        return tiny_print( &buf, format, args, count );
 }
 
 
@@ -276,4 +299,14 @@ int main(void)
  */
 
 #endif
+
+
+/* To keep linker happy. */
+int	write( int i, char* c, int n)
+{
+	(void)i;
+	(void)n;
+	(void)c;
+	return 0;
+}
 
