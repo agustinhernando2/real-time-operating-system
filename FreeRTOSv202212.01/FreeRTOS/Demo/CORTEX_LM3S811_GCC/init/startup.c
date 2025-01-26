@@ -156,10 +156,10 @@ ResetISR(void)
     //
     // Zero fill the bss segment.
     //
-    for(pulDest = &_bss; pulDest < &_ebss; )
-    {
-        *pulDest++ = 0;
-    }
+    // for(pulDest = &_bss; pulDest < &_ebss; )
+    // {
+    //     *pulDest++ = 0;
+    // }
 
     //
     // Call the application's entry point.
