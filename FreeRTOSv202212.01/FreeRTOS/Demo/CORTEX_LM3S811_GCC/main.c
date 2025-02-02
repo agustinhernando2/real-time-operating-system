@@ -14,8 +14,9 @@ int main(void)
 	xTaskCreate(vSensorTask, "Sensor", configMINIMAL_STACK_SIZE, NULL, MAX_TASK_PRIORITY - 3, NULL);
 	xTaskCreate(vFilterTask, "Filter", configMINIMAL_STACK_SIZE, NULL, MAX_TASK_PRIORITY - 2, NULL);
 	xTaskCreate(vPrintDisplayTask, "Display", configMINIMAL_STACK_SIZE, NULL, MAX_TASK_PRIORITY, NULL);
-	xTaskCreate(vStatusCPU, "Status", configMINIMAL_STACK_SIZE + 30, NULL, MAX_TASK_PRIORITY - 3, NULL);
-	// xTaskCreate(vGenerateOverflow, "Overfl", 10, NULL, MAX_TASK_PRIORITY , NULL);
+	xTaskCreate(vStatusCPU, "Status", configMINIMAL_STACK_SIZE + 300, NULL, 1, NULL);
+	xTaskCreate(vTaskHighCPU, "HighCPU", configMINIMAL_STACK_SIZE, NULL, 2, NULL);
+    xTaskCreate(vTaskLowCPU, "LowCPU", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
 
 	/* Start the scheduler. */
 	vTaskStartScheduler();
@@ -25,6 +26,23 @@ int main(void)
 
 	return 0;
 }
+
+void vTaskHighCPU(void *pvParameters)
+{
+    while (1)
+    {
+        vTaskDelay(1);
+    }
+}
+
+void vTaskLowCPU(void *pvParameters)
+{
+    while (1)
+    {
+        vTaskDelay(100);
+    }
+}
+
 
 /**
  * Esta tarea se encarga de generar un número aleatorio (dato del sensor) y enviarlo a la cola a una frecuencia de 10Hz
@@ -76,12 +94,12 @@ void vFilterTask(void *pvParameters)
 		{
 			index = 0;
 
-			int prom = 0;
+			int acc = 0;
 			for (int i = 0; i < N; i++)
 			{
-				prom += valuesSensor[i];
+				acc += valuesSensor[i];
 			}
-			prom = prom / N;
+			int prom = acc / N;
 
 			xQueueSend(xPrintQueue, &prom, portMAX_DELAY);
 		}
@@ -92,8 +110,9 @@ void vFilterTask(void *pvParameters)
  * Se grafica el valor del sensor en el Display, graficando una señal de temperatura según se van recibiendo los datos
  */
 static void vPrintDisplayTask(void *pvParameters)
-{
-	int prevValue = 0;
+{	
+	uint8_t currentValue = 0;
+	uint8_t prevValue = 0;
 	int uxLine = 0;
 	int uxLinePrev = -1;
 	int val;
@@ -103,28 +122,31 @@ static void vPrintDisplayTask(void *pvParameters)
 
 		xQueueReceive(xPrintQueue, &val, portMAX_DELAY);
 
-		uint8_t currentValue = val % 16; // 16 columnas del display
+		// send val to uart
+		// char valueResponce[20];
+		// sprintf(valueResponce, "Valor: %d\n", val);
+		// sendMessageUART(valueResponce);
 
-		printToDisplay(currentValue, prevValue, uxLine, uxLinePrev);
+		printToDisplay(val, prevValue, uxLine, uxLinePrev);
 
-		prevValue = currentValue;
+		prevValue = val;
 		uxLine++;
 		uxLinePrev++;
-		if (uxLine == 96)
+		if (uxLine > 95)
 		{
 			uxLine = 0;
 		}
-		if (uxLinePrev == 96)
+		if (uxLinePrev > 95)
 		{
 			uxLinePrev = 0;
 		}
 	}
 }
 
-/**
- * Esta tarea se encarga de mostrar el estado de la CPU, debe mostrar el stack libre de cada tarea, el uso de la CPU de cada tarea
- * el estado de cada tarea (Ready, Running, Blocked, etc) y su prioridad
- */
+/* This example demonstrates how a human readable table of run time stats
+   information is generated from raw data provided by uxTaskGetSystemState().
+   The human readable table is written to pcWriteBuffer. (see the vTaskList()
+   API function which actually does just this). */
 static void vStatusCPU(void *pvParameters)
 {
 	TaskStatus_t *pxTaskStatusArray;
@@ -132,10 +154,12 @@ static void vStatusCPU(void *pvParameters)
 
 	unsigned long ulTotalRunTime, ulStatsAsPercentage;
 
-	// Total de tareas en el sistema.
+	/* Take a snapshot of the number of tasks in case it changes while this
+      function is executing. */
 	uxArraySize = uxTaskGetNumberOfTasks();
 
-	// Asigne una estructura TaskStatus_t para cada tarea.
+	/* Allocate a TaskStatus_t structure for each task. An array could be
+      allocated statically at compile time. */
 	pxTaskStatusArray = pvPortMalloc(uxArraySize * sizeof(TaskStatus_t));
 
 	for (;;)
@@ -143,12 +167,12 @@ static void vStatusCPU(void *pvParameters)
 		if (pxTaskStatusArray != NULL)
 		{
 
-			// Genere información de estado sin procesar sobre cada tarea.
-			uxArraySize = uxTaskGetSystemState(pxTaskStatusArray,
-											   uxArraySize,
-											   &ulTotalRunTime);
+			/* Generate raw status information about each task. */
+			uxArraySize = uxTaskGetSystemState( pxTaskStatusArray,
+										uxArraySize,
+										&ulTotalRunTime );
 
-			// Para cálculos de porcentaje.
+			/* For percentage calculations. */
 			ulTotalRunTime /= 100UL;
 
 			// Evitar errores de división por cero.
@@ -165,17 +189,14 @@ static void vStatusCPU(void *pvParameters)
 					ulStatsAsPercentage =
 						pxTaskStatusArray[x].ulRunTimeCounter / ulTotalRunTime;
 
-					char message_cpu[15];
+					char message_cpu[1500];
+					//
+
 					if (ulStatsAsPercentage > 0UL)
 					{
-						if (ulStatsAsPercentage >= 100UL)
-						{
-							sprintf(message_cpu, "\tCPU usage: >99%%");
-						}
-						else
-						{
-							sprintf(message_cpu, "\tCPU usage: >99%%");
-						}
+						ulStatsAsPercentage = 10;
+						sprintf( message_cpu,  ": %lu",
+										(unsigned long) ulStatsAsPercentage );
 					}
 					else
 					{
@@ -252,31 +273,16 @@ static void prvSetupHardware(void)
 }
 
 /**
- * Se genera un overflow de pila
- */
-static void vGenerateOverflow(void *pvParameters)
-{
-	int A[10000];
-	long count = 1;
-	for (;;)
-	{
-		for(int i = 0; i < count; i++)
-		{
-			A[i] = i;
-		}
-		count ++;
-		vTaskDelay(1000);
-	}
-}
-
-/**
- * Recibe un valor por RX UART
+ * Recibe un valor por RX UART el cual se utiliza 
+ * para modificar el valor de NFilter, 
+ * el cual es el tamaño del filtro pasa bajo
+ * El valor de NFilter debe estar entre 0 y 9
  */
 void vUART_ISR(void)
 {
 	char valueRx;
 	unsigned long ulStatus;
-	portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
+	portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE; 
 	ulStatus = UARTIntStatus(UART0_BASE, true);
 
 	UARTIntClear(UART0_BASE, UART_INT_TX);
@@ -285,7 +291,7 @@ void vUART_ISR(void)
 	{
 		valueRx = UARTCharGet(UART0_BASE);
 		// transformo el char en uint8_t
-		uint8_t value = valueRx - '0';
+		uint8_t value = valueRx - '0'; // '0' = 48, '9' = 57
 		if (value <= 0 || value > NFilterMax)
 		{
 			// Envio por UART un mensaje de error
@@ -301,9 +307,9 @@ void vUART_ISR(void)
 			sendMessageUART(valueResponce);
 			sendMessageUART("\n");
 
-			xSemaphoreTakeFromISR(xNFilterSemaphore, &xHigherPriorityTaskWoken);
+			xSemaphoreTakeFromISR(xNFilterSemaphore, &xHigherPriorityTaskWoken); // acquire the semaphore, pdFALSE will block the task if the semaphore is not available
 			NFilter = value;
-			xSemaphoreGiveFromISR(xNFilterSemaphore, &xHigherPriorityTaskWoken);
+			xSemaphoreGiveFromISR(xNFilterSemaphore, &xHigherPriorityTaskWoken); // release the semaphore
 		}
 	}
 }
@@ -360,7 +366,8 @@ void printToDisplay(uint8_t currentValue, uint8_t prevValue, int uxLine, int uxL
 }
 
 /**
- * Genera un número aleatorio entre 0 y 96
+ * Funcion que genera un numero pseudoaleatorio entre 0 y 95
+ * Devuelve un número entre 0 y 95 (16(columnas del display)*6) = 96 posibles valores
  */
 int get_random_int()
 {
@@ -377,8 +384,7 @@ int get_random_int()
 		seed = test + m;
 	}
 
-	// Devuelve un número entre 0 y 96 (16(columnas del display)*6)
-	return seed % 96;
+	return seed % 16;
 }
 
 /**

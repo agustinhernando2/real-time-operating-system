@@ -1,0 +1,337 @@
+Ingrese un valor entre 0 y 9 para modificar el parámetro N del filtro pasa bajo
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 90	Status: Running	Priority: 0
+IDLE	CPU usage: 99%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 1%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 158	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 28	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 75	Status: Running	Priority: 0
+IDLE	CPU usage: 99%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 2%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 140	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 28	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 75	Status: Running	Priority: 0
+IDLE	CPU usage: 99%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 3%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 138	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 28	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 75	Status: Running	Priority: 0
+IDLE	CPU usage: 97%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 3%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 134	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 28	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 75	Status: Running	Priority: 0
+IDLE	CPU usage: 95%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 4%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 134	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 28	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 75	Status: Running	Priority: 0
+IDLE	CPU usage: 94%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 5%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 129	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 28	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 75	Status: Running	Priority: 0
+IDLE	CPU usage: 94%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 6%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 128	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 28	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 72	Status: Running	Priority: 0
+IDLE	CPU usage: 93%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 6%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 128	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 28	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 66	Status: Running	Priority: 0
+IDLE	CPU usage: 92%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 7%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 128	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 28	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 66	Status: Running	Priority: 0
+IDLE	CPU usage: 92%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 8%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 128	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 28	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 66	Status: Running	Priority: 0
+IDLE	CPU usage: 91%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 8%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 102	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 28	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 90%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 9%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 100	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 28	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 89%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 10%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 96	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 28	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 89%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 10%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 96	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 28	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 88%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 11%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 91	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 28	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 87%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 12%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 90	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 24	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 87%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 12%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 82	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 24	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 86%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 13%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 82	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 24	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 85%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 13%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 82	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 24	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 85%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 14%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 64	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 24	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 84%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 15%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 62	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 24	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 83%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 15%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 58	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 24	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 82%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 16%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: <1%	Free Stack: 58	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 24	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 81%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 16%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: 1%	Free Stack: 53	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 24	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 80%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 17%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: 2%	Free Stack: 52	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 24	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 78%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 17%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: 3%	Free Stack: 44	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 24	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 75%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 18%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: 5%	Free Stack: 44	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 24	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 71%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 19%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: 8%	Free Stack: 44	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 20	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 66%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 20%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: 12%	Free Stack: 26	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 20	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 60%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 22%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: 16%	Free Stack: 24	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 20	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 52%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 24%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: 22%	Free Stack: 20	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 20	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 43%	Free Stack: 60	Status: Ready	Priority: 0
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+STsage	CPU usage: 28%	Free Stack: 20	Status: Blocked	Priority: 1
+HighCPU	CPU usage: 27%	Free Stack: 46	Status: Blocked	Priority: 4
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 20	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 32%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 32%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: 34%	Free Stack: 15	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 20	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 23%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 38%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: 37%	Free Stack: 14	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 36	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 20	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 14%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 46%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: 38%	Free Stack: 14	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 34	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 20	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 8%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 55%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: 35%	Free Stack: 6	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 34	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 20	Status: Blocked	Priority: 4
+
+---------------------- Estados de las tareas ----------------------
+Status	CPU usage: <1%	Free Stack: 58	Status: Running	Priority: 0
+IDLE	CPU usage: 4%	Free Stack: 60	Status: Ready	Priority: 0
+HighCPU	CPU usage: 64%	Free Stack: 46	Status: Blocked	Priority: 4
+STsage	CPU usage: 30%	Free Stack: 6	Status: Blocked	Priority: 1
+Sensor	CPU usage: <1%	Free Stack: 34	Status: Blocked	Priority: 2
+Filter	CPU usage: <1%	Free Stack: 22	Status: Blocked	Priority: 3
+Display	CPU usage: <1%	Free Stack: 20	Status: Blocked	Priority: 4
+
+Error: Stack Overflow in 
+STsage
