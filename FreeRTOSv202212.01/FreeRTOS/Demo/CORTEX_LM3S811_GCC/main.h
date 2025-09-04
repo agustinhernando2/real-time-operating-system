@@ -14,14 +14,17 @@
 #define configKERNEL_INTERRUPT_PRIORITY 255
 // unsigned int _Min_Heap_Size = 0x200; /* Tamaño del heap en bytes */
 
-// Definicion de constantes para el generador de numeros aleatorios Montecarlo
-#define a 16807             // Multiplicador del generador de congruencia multiplicativa
-#define m 2147483647        // Modulo (numero primo 2^31 - 1)
-#define q (m / a)           // Cociente de m / a, optimiza el calculo reduciendo divisiones
-#define r (m % a)           // Residuo de m / a, usado en la optimizacion
+// Variables para el generador de números aleatorios Montecarlo
+#define a 16807
+#define m 2147483647
+#define q (m / a)
+#define r (m % a)
 
 // Valor maximo de NFilter
 #define NFilterMax 10
+#define DELAY_SENSOR 100
+#define DELAY_HIGHCPU 10
+#define DELAY_STATUSCPU 1000
 
 // Prioridad de las tareas
 #define MAX_TASK_PRIORITY (tskIDLE_PRIORITY + 5)
@@ -33,10 +36,8 @@ static void vPrintDisplayTask(void *pvParameter);
 static void vSensorTask(void *pvParameters);
 static void vFilterTask(void *pvParameters);
 static void vStatusCPU(void *pvParameters);
-static void vGenerateOverflow(void *pvParameters);
+static void vGenerateOverflowTask(void *pvParameters);
 static void vTaskHighCPU(void *pvParameters);
-static void vTaskStackUsage(void *pvParameters);
-int fibonacci(int n);
 
 static void prvSetupHardware(void);
 void printToDisplay(uint8_t currentValue, uint8_t prevValue, int uxLine, int uxLinePrev);
@@ -47,13 +48,13 @@ void vTimer_ISR(void);
 void confTimer0();
 unsigned long get_time();
 
-// String that is transmitted on the UART.
+/* String that is transmitted on the UART. */
 QueueHandle_t xPrintQueue;
 QueueHandle_t xSensorQueue;
 
-// semaphore
+//semaforo
 SemaphoreHandle_t xNFilterSemaphore;
 
 uint8_t NFilter = 9;
-static long int seed = 1; // Semilla global para el generador de numeros aleatorios
+static long int seed = 1;
 unsigned long timer = 0;

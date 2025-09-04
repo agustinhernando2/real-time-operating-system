@@ -1,1 +1,25 @@
-.vscode/*
+# Archivos generados por el compilador y el enlazador
+*.o
+*.d
+*.elf
+*.bin
+*.map
+*.hex
+*.lst
+*.srec
+
+# Archivos de depuración y herramientas
+*.gdb
+.vscode/
+
+# Archivos de respaldo y temporales
+*~
+*.bak
+*.tmp
+
+# Archivos de registro y caché
+*.log
+.cache/
+
+# Directorio de salida de la compilación
+gcc/
